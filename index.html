@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery SingPageApp</title>
+	<script src="lib/jquery1-9-1.min.js"></script>
+	<script src="lib/AjaxHelper.js"></script>
+</head>
+<body>
+
+
+
+<h1>Ajax Query Data</h1>
+<form id="formSearch">
+	<input type="text" name="searchDate">
+	<button>Search</button>
+</form>
+
+
+
+<script >
+
+	$("#formSearch").submit(function (e) {
+		e.preventDefault();
+		var formDate = $(this).serialize();
+
+
+	});
+
+
+
+</script>
+
+</body>
+</html>
