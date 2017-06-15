@@ -6,29 +6,37 @@
 	<script src="lib/AjaxHelper.js"></script>
 </head>
 <body>
+	<h1>Ajax Query Data</h1>
+	<form id="formSearch">
+		<input type="text" name="searchDate">
+		<button>Search</button>
+	</form>
 
+	<div id="header">
+		12313213
+	</div>
 
+	<script >
 
-<h1>Ajax Query Data</h1>
-<form id="formSearch">
-	<input type="text" name="searchDate">
-	<button>Search</button>
-</form>
+		$(function (){
+			var tHeader = AjaxGetHtml('template/header.html');
 
+			$("#formSearch").submit(function (e) {
+				e.preventDefault();
+				var formDate = $(this).serialize();
 
+				var ajax = AjaxPost('api/master/cars.php',formDate);
+				if(ajax.success != null){
+					console.log(ajax.success);
+					console.log(tHeader);
+					$("#header").html(tHeader.responseText);
+				} 
+				else{
+					console.log(ajax.error.statusText);
+				}
+			});
 
-<script >
-
-	$("#formSearch").submit(function (e) {
-		e.preventDefault();
-		var formDate = $(this).serialize();
-
-
-	});
-
-
-
-</script>
-
+		});
+	</script>
 </body>
 </html>
